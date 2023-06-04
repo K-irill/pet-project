@@ -10,7 +10,7 @@ export function buildLoaders({ isDev }:BuildOptions): RuleSetRule[] {
     }
 
     const typescriptLoader = {
-        test: /\.tsx?$/,
+        test: /\LangSwitcher.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
     };
