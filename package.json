@@ -15,6 +15,9 @@
     "test-ui": "npx loki test",
     "test-ui-ok": "npx loki approve",
     "test-ui-ci": "concurrently --kill-others --raw --success first \"npm run storybook\" \"npm run test-ui\" \"deelay\"",
+    "test-ui-report": "npm run test-ui-json && npm run test-ui-html",
+    "test-ui-json": "node scripts/generate-visual-json-report.js",
+    "test-ui-html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook"
   },
@@ -47,7 +50,9 @@
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
+    "concurrently": "^8.2.0",
     "css-loader": "^6.6.0",
+    "deelay": "^2.0.0",
     "eslint": "8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-i18next": "^5.1.2",
@@ -60,7 +65,9 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
@@ -74,10 +81,7 @@
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.7.4",
-    "loki": "^0.32.0",
-    "concurrently": "^8.2.0",
-    "deelay": "^2.0.0"
+    "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
     "i18next": "^21.6.11",
